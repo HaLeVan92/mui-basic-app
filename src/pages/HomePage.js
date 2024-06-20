@@ -36,7 +36,8 @@ export default function HomePage() {
          count={3}
           variant="outlined"
           shape="rounded"          
-          size="medium"       
+          size="medium"
+          sx ={ {background: '#fff'}}
           />
       </Stack>
     </Container> 
