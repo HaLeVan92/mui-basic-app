@@ -5,17 +5,31 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import CssBaseline from '@mui/material/CssBaseline';
 import ThemeProvider from "./theme";
-import { BrowserRouter } from 'react-router-dom';
+
+
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+// import ErrorPage from './pages/ErrorPage';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App/>,
+    // errorElement: <ErrorPage />,
+  },
+]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   
-    <BrowserRouter>
+
       <ThemeProvider>
         <CssBaseline />
-        <App />
+        <RouterProvider router={router} />       
       </ThemeProvider>
-    </BrowserRouter>
+  
   
 );
 

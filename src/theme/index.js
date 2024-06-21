@@ -5,6 +5,9 @@ import {
   ThemeProvider as MUIThemeProvider,
 } from "@mui/material/styles";
 
+const Pagination = {
+  main: "#FFF",
+}
 const PRIMARY = {
   lighter: "#f9e9e9",
   light: "#423e3e",
@@ -58,11 +61,11 @@ function ThemeProvider({ children }) {
       primary: PRIMARY,
       secondary: SECONDARY,
       success: SUCCESS,
-      text: { primary: GREY[800], secondary: GREY[600], disabled: GREY[500] },
-
+      text: { primary: GREY[900], secondary: GREY[900], disabled: GREY[900] },
+      pagination: Pagination,
       action: {
         active: GREY[600],
-        hover: GREY[500_8],
+        hover: GREY[500],
         selected: GREY[500_16],
         disabled: GREY[500_80],
         disabledBackground: GREY[500_24],

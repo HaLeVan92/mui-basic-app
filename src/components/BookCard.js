@@ -26,7 +26,7 @@ export default function BookCard({book}) {
           </Typography>      
         </CardContent>
       </CardActionArea>
-      <CardActions sx={{position: 'absolute', bottom:'10px', left: '100px'}}>
+      <CardActions sx={{position: 'absolute', bottom:'10px', left: '70px'}}>
         <Button variant="contained" 
           sx={{ width: "130px", backgroundColor: "#df9e0b" }}>
           LEARN MORE
