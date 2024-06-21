@@ -11,7 +11,7 @@ export default function BookCard({book}) {
   const navigate = useNavigate();
   return (
     <Card onClick={() => navigate(`/book/${book.id}`)} 
-    sx={{height : 320 , position: 'relative'}}
+    sx={{height : 340 , position: 'relative'}}
       
     >
       <CardActionArea>

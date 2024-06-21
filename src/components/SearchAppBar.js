@@ -4,13 +4,13 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import InputBase from '@mui/material/InputBase';
+// import InputBase from '@mui/material/InputBase';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import { Button } from '@mui/material';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import { useSearchParams } from "react-router-dom"
+// import { useSearchParams } from "react-router-dom"
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -60,12 +60,12 @@ export default function SearchAppBar() {
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
-  let [searchParams, setSearchParams] = useSearchParams();
-  function handleSubmit(event) {
-    event.preventDefault();
-    console.log(event)   
-    setSearchParams({search: event.target.value});
-  }
+  // let [searchParams, setSearchParams] = useSearchParams();
+  // function handleSubmit(event) {
+  //   event.preventDefault();
+  //   console.log(event)   
+  //   setSearchParams({search: event.target.value});
+  // }
 
   const handleMobileMenuClose = () => {
     setMobileMoreAnchorEl(null);
@@ -137,7 +137,7 @@ export default function SearchAppBar() {
           >
             Job Routing
           </Typography>
-          <form onSubmit={handleSubmit}>
+          {/* <form onSubmit={handleSubmit}> */}
           <Search >
             <SearchIconWrapper >
               <SearchIcon />
@@ -148,7 +148,7 @@ export default function SearchAppBar() {
               
             />
           </Search>
-          </form>
+          {/* </form> */}
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex', color:"#fff", background:'black' } }} >
             <Button variant="solid" color="success">Login</Button>           
