@@ -4,13 +4,13 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-// import InputBase from '@mui/material/InputBase';
+import InputBase from '@mui/material/InputBase';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import { Button } from '@mui/material';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-// import { useSearchParams } from "react-router-dom"
+import { useSearchParams } from "react-router-dom"
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -39,19 +39,21 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
   color: 'white',
 }));
 
-const StyledInputBase = styled('input')(({ theme }) => ({
-  color: 'white',
-  '& .MuiInputBase-input': {
+const StyledInputBase = styled(InputBase)(({ theme }) => ({
+  color: "white",
+  "& .MuiInputBase-input": {
     padding: theme.spacing(1, 1, 1, 0),
     // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('md')]: {
-      width: '20ch',
+    transition: theme.transitions.create("width"),
+    width: "100%",
+    [theme.breakpoints.up("md")]: {
+      width: "20ch",
     },
   },
 }));
+
+
 
 export default function SearchAppBar() {
   
@@ -63,9 +65,22 @@ export default function SearchAppBar() {
   // let [searchParams, setSearchParams] = useSearchParams();
   // function handleSubmit(event) {
   //   event.preventDefault();
+  //   setSearchParams({ search: event.target[0].value });
+  // }
+
+  // let [searchParams, setSearchParams] = useSearchParams();
+  // function handleSubmit(event) {
+  //   event.preventDefault();
   //   console.log(event)   
   //   setSearchParams({search: event.target.value});
   // }
+
+  let [searchParams, setSearchParams] = useSearchParams();
+  function handleSubmit(event) {
+    event.preventDefault();
+    setSearchParams({ search: event.target[0].value });
+  }
+
 
   const handleMobileMenuClose = () => {
     setMobileMoreAnchorEl(null);
@@ -137,8 +152,8 @@ export default function SearchAppBar() {
           >
             Job Routing
           </Typography>
-          {/* <form onSubmit={handleSubmit}> */}
           <Search >
+          <form onSubmit={handleSubmit}>
             <SearchIconWrapper >
               <SearchIcon />
             </SearchIconWrapper>
@@ -147,8 +162,8 @@ export default function SearchAppBar() {
               inputProps={{ 'aria-label': 'search' }}
               
             />
+          </form>
           </Search>
-          {/* </form> */}
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex', color:"#fff", background:'black' } }} >
             <Button variant="solid" color="success">Login</Button>           

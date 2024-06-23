@@ -5,35 +5,29 @@ import BookCard from '../components/BookCard';
 import { Container } from '@mui/material';
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
-// import { styled } from '@mui/material/styles';
-
-// const CustomizedPagination = styled(Pagination)`
-// &.MuiPagination-text: { color: white}
-//   &.MuiPaginationItem-root': {
-//     '&.Mui-selected': {        
-//       color: 'white',
-//       backgroundColor: 'yellow',
-//     },}
-// `;
-
-// const CustomizedPagination = styled(Pagination)(({ theme }) => ({
-//   color: 'white',
-// }))
+import { useSearchParams } from "react-router-dom";
 
 
 
-export default function HomePage() {
-  const [page, setPage] = useState(1)
 
-  let a = 0;
-  let b = 5;
-  if(page === 2) {
-    a = a + 5;
-    b = b + 5;
-  } else if (page === 3) {
-    a = a + 10;
-    b = b + 15;
-  } 
+export default function HomePage() {  
+  const [page, setPage] = useState(1);
+
+  let [searchParams, setSearchParams] = useSearchParams();
+  const query = searchParams.get("search");
+  
+  
+
+  let a = (page-1) * 5;
+  let b = (page) * 5;
+  const filteredBooks = books.filter((book) => book.title.includes(query));
+  // if(page === 2) {
+  //   a = a + 5;
+  //   b = b + 5;
+  // } else if (page === 3) {
+  //   a = a + 10;
+  //   b = b + 15;
+  // } 
 
   return (   
     <Container>
@@ -51,7 +45,7 @@ export default function HomePage() {
              height="100%"
              padding="5px"
              >
-          {books.slice(a, b).map((book) => (
+          {filteredBooks.slice(a, b).map((book) => (
             <Grid item xs={12} md={4} lg={3}>          
               <BookCard 
                 key={book.id}
